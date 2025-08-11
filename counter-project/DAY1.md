@@ -8,7 +8,7 @@
 - Counter.sol 주요 코드:
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.13;
+pragma solidity 0.8.13;
 
 contract Counter {
     uint256 public number;
@@ -76,7 +76,8 @@ Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorre
 INFO:Slither:. analyzed (1 contracts with 100 detectors), 1 result(s) found
 ```
 - 조치 여부 및 방법:
-  - 무시
+  - (수정전) 무시 
+  - (수정후) `--exclude-informational` 옵션으로 노이즈 제거
 
 [오늘 회고]
 - 배운 점: 
