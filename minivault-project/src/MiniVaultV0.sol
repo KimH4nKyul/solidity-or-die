@@ -27,13 +27,9 @@ contract MiniVaultV0 {
         emit Withdraw(msg.sender, value);
     }
 
-    // why use `payable` keyword?
     function deposit() public payable { 
         if (msg.value == 0) revert ZeroDeposit();
-        /**
-        if u need no overflow? use this. => `+=` 
-         */
-        balances[msg.sender] = balances[msg.sender] + msg.value;
+        balances[msg.sender] += msg.value;
         totalDeposits += msg.value;
         
         emit Deposit(msg.sender, msg.value);

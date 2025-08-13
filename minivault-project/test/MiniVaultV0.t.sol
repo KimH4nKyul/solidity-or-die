@@ -12,12 +12,10 @@ contract MiniVaultV0Test is Test {
     event Withdraw(address indexed from, uint256 value);
     event Deposit(address indexed from, uint256 value);     
 
-    // why use address type variable `user` here? 
     address user;
 
     function setUp() public { 
         miniVaultV0 = new MiniVaultV0();
-        // what is makeAddr?
         user = makeAddr("user");
     }    
 
@@ -100,17 +98,13 @@ contract MiniVaultV0Test is Test {
         x = bound(x, 1, 100 ether);
         vm.deal(user, 100 ether);
 
-        // what is startPrank and stopPrank?
         vm.startPrank(user); 
         miniVaultV0.deposit{value: 100 ether}();
 
-        // how to explain this code? what is expectEmit and it's optinal params?
         vm.expectEmit(true, false, false, true, address(miniVaultV0));
         emit Withdraw(user, x);
 
         miniVaultV0.withdraw(x);
         vm.stopPrank();
-
-        // whiat is bound, deal, prank?
     }
 }
