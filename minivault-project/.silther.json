@@ -1,0 +1,4 @@
+{
+  "exclude": ["solc-version"],
+  "note": "We pin to 0.8.23 in pragma & foundry.toml; informational noise only."
+}

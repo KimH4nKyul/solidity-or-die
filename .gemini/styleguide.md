@@ -1,0 +1,2 @@
+# Review Style
+- Using Korean.
